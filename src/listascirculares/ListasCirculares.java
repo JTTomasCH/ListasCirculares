@@ -81,7 +81,7 @@ public class ListasCirculares<Item extends Comparable<? super Item>> implements 
 
     }
 
-    public boolean SonIguales(ListasCirculares<Item> otherList) {
+    public boolean areEquals(ListasCirculares<Item> otherList) {
         if (this.size() != otherList.size()) {
             return false;
         }
@@ -177,7 +177,7 @@ public class ListasCirculares<Item extends Comparable<? super Item>> implements 
 
     }
 
-    public Iterator<Item> iterator() {
+     public Iterator<Item> iterator() {
         return new ListIterator<Item>(first);
     }
 
@@ -196,6 +196,9 @@ public class ListasCirculares<Item extends Comparable<? super Item>> implements 
 
         @Override
         public Item next() {
+            if (!hasNext()) {
+                return null;
+            }
             Item item = current.item;
             current = current.next;
             return item;
@@ -203,16 +206,16 @@ public class ListasCirculares<Item extends Comparable<? super Item>> implements 
 
     }
 
-    public Iterator<Item> clockwiseIterator() {
-        return new ClockwiseListIterator<Item>(first);
+    public Iterator<Item> ManecillasReloj() {
+        return new ManecillasReloj<Item>(first);
     }
 
-    private class ClockwiseListIterator<Item> implements Iterator<Item> {
+    private class ManecillasReloj<Item> implements Iterator<Item> {
 
         private Node<Item> current;
         private boolean firstIteration = true;
 
-        public ClockwiseListIterator(Node<Item> first) {
+        public ManecillasReloj(Node<Item> first) {
             this.current = first;
         }
 
@@ -233,16 +236,16 @@ public class ListasCirculares<Item extends Comparable<? super Item>> implements 
         }
     }
 
-    public Iterator<Item> counterClockwiseIterator() {
-        return new CounterClockwiseListIterator<Item>(first);
+    public Iterator<Item> ContrarioManecillas() {
+        return new ContrarioManecillas<Item>(first);
     }
 
-    private class CounterClockwiseListIterator<Item> implements Iterator<Item> {
+    private class ContrarioManecillas<Item> implements Iterator<Item> {
 
         private Node<Item> current;
         private boolean firstIteration = true;
 
-        public CounterClockwiseListIterator(Node<Item> first) {
+        public ContrarioManecillas(Node<Item> first) {
             this.current = first;
         }
 

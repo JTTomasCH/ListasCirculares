@@ -48,19 +48,19 @@ public class ListasCircularesMain {
         System.out.println("");
 
         
-        Iterator<Persona> counterClockwiseIterator = persona.counterClockwiseIterator();
+        Iterator<Persona> ManecillasReloj = persona.ManecillasReloj();
         System.out.println("Recorrido en sentido contrario de las manecillas del reloj:");
-        while (counterClockwiseIterator.hasNext()) {
-            System.out.print(counterClockwiseIterator.next() + " ");
+        while (ManecillasReloj.hasNext()) {
+            System.out.print(ManecillasReloj.next() + " ");
         }
         System.out.println();
         System.out.println();
         
         
-        Iterator<Persona> clockwiseIterator = persona.clockwiseIterator();
+        Iterator<Persona> ContrarioManecillas = persona.ContrarioManecillas();
         System.out.println("Recorrido en sentido de las manecillas del reloj:");
-        while (clockwiseIterator.hasNext()) {
-            System.out.print(clockwiseIterator.next() + " ");
+        while (ContrarioManecillas.hasNext()) {
+            System.out.print(ContrarioManecillas.next() + " ");
         }
         System.out.println();
     }
